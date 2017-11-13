@@ -51,14 +51,14 @@ public partial class login : System.Web.UI.Page
         sqlCon.Open();                               //打开数据库连接
         SqlCommand sqlComGet = new SqlCommand();     //创建SqlCommand对象
         sqlComGet.Connection = sqlCon;               //用sqlCon初始化SqlCommand对象
-        sqlComGet.CommandText = "select * from user_table where name='" + uname + "' and psw='" + pwd + "'";
+        sqlComGet.CommandText = "select * from User_Register_Table where user_name='" + uname + "' and password='" + pwd + "'";
         SqlDataReader sqlDr = sqlComGet.ExecuteReader();   //创建SqlDataReader对象,执行sql语句
         if (sqlDr.Read())                                  //如果能查到记录则帐号和密码正确，否则错误
         {
             Session["UserID"] = sqlDr["no"];
             Session["UserEmail"] = sqlDr["email"];
             Session["UserName"] = uname;                      //用Session记录帐号
-
+            Session["limit"] = 0;//用户权限， 数值越小权限越高
             Session["UserPwd"] = pwd;                //用Session记录密码
             Response.Redirect("home.aspx");//跳转到主页
             Response.Write("<script>alert('登陆成功！')</script>");

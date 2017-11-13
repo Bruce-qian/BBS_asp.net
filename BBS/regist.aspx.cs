@@ -22,15 +22,20 @@ public partial class regist : System.Web.UI.Page
     protected void btnOk_Click(object sender, EventArgs e)
     {
         //链接数据库验证身份
-        string uname = this.txtName.Text.ToString();               //得到登陆帐号
-        string pwd = this.txtPsw.Text.ToString();              //得到登陆密码
+        string uname = this.txtName.Text.ToString();          //得到登陆帐号
+        string pwd = this.txtPsw.Text.ToString();   //得到登陆密码
+        string sex = this.txtSex.Text;
+        string birthday = this.txtBirthday.Text;
+        string phonenumber = this.txtPhone.Text;
+        string email = this.txtEmail.Text;
+        string adress = this.txtAdress.Text;
         SqlConnection sqlCon = new SqlConnection();   //创建数据库连接对象
         //初始化该对象的连接字串
         sqlCon.ConnectionString = ConfigurationManager.ConnectionStrings["strConn"].ConnectionString;
         sqlCon.Open();                               //打开数据库连接
         SqlCommand sqlComGet = new SqlCommand();     //创建SqlCommand对象
         sqlComGet.Connection = sqlCon;               //用sqlCon初始化SqlCommand对象
-        sqlComGet.CommandText = "insert into user_table(no,name,psw) values('7890','" + uname + "','" + pwd + "')";
+        sqlComGet.CommandText = "insert into User_Register_Table(user_name, password, sex, birthday_time, phone_number, e_mail, address) values('" + uname + "','" + pwd + "','" + sex + "','" + birthday + "','" + phonenumber + "','" + email + "','" + adress + "')";
         int update = sqlComGet.ExecuteNonQuery();//执行sql语句并返回受影响的行数
         if (update != 0)
         {
