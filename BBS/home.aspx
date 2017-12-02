@@ -80,7 +80,7 @@
                     <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
                 </td>
                 <td class =" auto-style-tdd">
-                    <iframe id="frame1" src="SourcePage.extension / URL of the external Site" scrolling="auto" runat="server" width ="100%">
+                    <iframe id="frame1" src="SourcePage.extension / URL of the external Site" runat="server">
 
                     </iframe>
                 </td>

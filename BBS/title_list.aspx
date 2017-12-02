@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="title_list.aspx.cs" Inherits="title_list" %>
 
 <!DOCTYPE html>
-
+<!--罗列某个论坛里的帖子标题，并能通过点击阅读某个帖子的详细内容-->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -26,15 +26,16 @@
                 <td>
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceViewItem" AllowPaging="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" PageSize="2">
             <Columns>
-                <asp:BoundField DataField="bbs_title" HeaderText="bbs_title" SortExpression="bbs_title" />
-                <asp:BoundField DataField="bbs_moderator" HeaderText="bbs_moderator" SortExpression="bbs_moderator" />
-                <asp:BoundField DataField="bbs_start_time" HeaderText="bbs_start_time" SortExpression="bbs_start_time" />
-                <asp:BoundField DataField="bbs_end_time" HeaderText="bbs_end_time" SortExpression="bbs_end_time" />
-                <asp:CommandField SelectText="进入" ShowSelectButton="True" />
+                <asp:BoundField DataField="post_id" HeaderText="post_id" SortExpression="post_id" />
+                <asp:BoundField DataField="user_id" HeaderText="user_id" SortExpression="user_id" />
+                <asp:BoundField DataField="post_title" HeaderText="post_title" SortExpression="post_title" />
+                <asp:BoundField DataField="post_publish_time" HeaderText="post_publish_time" SortExpression="post_publish_time" />
+                <asp:BoundField DataField="reade_count" HeaderText="reade_count" SortExpression="reade_count" />
+                <asp:CommandField ShowSelectButton="True" />
             </Columns>
         </asp:GridView>
     
-        <asp:SqlDataSource ID="SqlDataSourceViewItem" runat="server" ConnectionString="<%$ ConnectionStrings:strConn %>" SelectCommand="SELECT [bbs_title], [bbs_moderator], [bbs_start_time], [bbs_end_time] FROM [BBS_Column_Table]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceViewItem" runat="server" ConnectionString="<%$ ConnectionStrings:strConn %>" SelectCommand="SELECT [post_id], [user_id], [post_title], [post_publish_time], [reade_count] FROM [Send_Post_Count_Table]"></asp:SqlDataSource>
     
                 </td>
             </tr>
