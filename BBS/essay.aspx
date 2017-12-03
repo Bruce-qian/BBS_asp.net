@@ -20,6 +20,9 @@
             <asp:Label ID="labContent" runat="server" Text="空"></asp:Label>
 
 
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="删除" />
+
+
         </div>
         <div>
             <asp:TextBox ID="txtConment" runat="server" Height="32px" Width="214px"></asp:TextBox>

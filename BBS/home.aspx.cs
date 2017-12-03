@@ -23,6 +23,8 @@ public partial class home : System.Web.UI.Page
 
     protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
     {
+        Application["class"] = TreeView1.SelectedValue;
+        /*
         if (TreeView1.SelectedValue == "C++") {
             //C++论坛
             frame1.Attributes["src"] = "title_list.aspx";//在iframe中显示一个页面
@@ -35,5 +37,6 @@ public partial class home : System.Web.UI.Page
             //PHP论坛
             frame1.Attributes["src"] = "title_list.aspx";
         }
+        */
     }
 }
