@@ -24,6 +24,15 @@
         <table>
             <tr>
                 <td>
+
+                    <asp:Button ID="btnApplication" runat="server" OnClick="btnApplication_Click" Text="申请版主" />
+
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceViewItem" AllowPaging="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" PageSize="2">
             <Columns>
                 <asp:BoundField DataField="post_id" HeaderText="post_id" SortExpression="post_id" />

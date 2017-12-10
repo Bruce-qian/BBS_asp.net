@@ -46,12 +46,11 @@ public partial class login : System.Web.UI.Page
         string uname = this.txtName.Text.ToString();               //得到登陆帐号
         string pwd = this.txtPassword.Text.ToString();              //得到登陆密码
         SqlConnection sqlCon = new SqlConnection();   //创建数据库连接对象
-        //初始化该对象的连接字串
         sqlCon.ConnectionString = ConfigurationManager.ConnectionStrings["strConn"].ConnectionString;
         sqlCon.Open();                               //打开数据库连接
         SqlCommand sqlComGet = new SqlCommand();     //创建SqlCommand对象
         sqlComGet.Connection = sqlCon;               //用sqlCon初始化SqlCommand对象
-        sqlComGet.CommandText = "select * from User_Register_Table where user_name='" + uname + "' and password='" + pwd + "'";
+        sqlComGet.CommandText = "select * from User_Register_Table where user_name='" + uname + "' and password='" + pwd + "'";//初始化该对象的连接字串
         SqlDataReader sqlDr = sqlComGet.ExecuteReader();   //创建SqlDataReader对象,执行sql语句
         if (sqlDr.Read())                                  //如果能查到记录则帐号和密码正确，否则错误
         {
