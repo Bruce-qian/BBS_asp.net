@@ -9,11 +9,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="标题"></asp:Label>
+        </div>
     <div>
     <!--显示文章标题-->
         <asp:Label ID="labTitle" runat="server" Text="labTitle"></asp:Label>
     
     </div>
+        <div>
+            <asp:Label ID="Label2" runat="server" Text="内容"></asp:Label>
+        </div>
         <div>
             <!--显示文章内容-->
 
@@ -35,6 +41,9 @@
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
 
+        </div>
+        <div>
+            <asp:Button ID="btnReturn" runat="server" Text="返回" OnClick="btnReturn_Click" />
         </div>
     </form>
 </body>

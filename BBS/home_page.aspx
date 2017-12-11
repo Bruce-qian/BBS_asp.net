@@ -8,7 +8,7 @@
     <title></title>
 
     <style type="text/css">
-        *{margin:0px;padding:0px;}
+        
           html, body ,div 
          {  
         padding: 0;  
@@ -23,6 +23,7 @@
         margin-right:auto;
         }
         .left {
+            clear:both;
         width:10%;
         height:500px;
        margin-bottom:0px;
@@ -42,25 +43,17 @@
             
             margin-bottom:0px;
             margin-top:0px;
-            clear:both;
+            
         }
         .headright {
         width:30%;
         height:100%;
-        
         margin-bottom:0px;
        margin-top:0px;
-       clear:both;
+       
        
         }
-        .auto-style1 {
-            width: 30%;
-            height: 100%;
-            clear: both;
-            margin-bottom: 0px;
-            margin-top: 0px;
-            float: left;
-        }
+       
     </style>
 </head>
 <body>
@@ -72,16 +65,19 @@
             </iframe>
         </div>
         <div class="headright" style="float:right">
-         <table style="width:100%;height:100%">
+         <table style="width:100%">
             <tr>
                 <td> 
                     <asp:Button ID="btnSet" runat="server" Text="设置" />
                 </td>
                 <td> 
-                    <asp:Button ID="btnQuit" runat="server" Text="退出" />
+                    <asp:Button ID="btnQuit" runat="server" Text="退出" OnClick="btnQuit_Click" />
                 </td>
                 <td>
                     <asp:Button ID="btnLogin" runat="server" Text="登陆" OnClick="btnLogin_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="btnPost" runat="server" Text="发帖" OnClick="btnPost_Click" />
                 </td>
             </tr>
         </table>

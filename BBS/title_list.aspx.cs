@@ -34,7 +34,7 @@ public partial class title_list : System.Web.UI.Page
 
     protected void btnApplication_Click(object sender, EventArgs e)
     {
-        Session["limit"] = (int)0;////测试数据
+        //Session["limit"] = (int)0;////测试数据
         //先从版主申请规则表中读取数据，看申请者是否符合版主申请条件：会员，活跃度高（待定规则）
         int limit = 100;
         SqlConnection sqlCon = new SqlConnection();   //创建数据库连接对象

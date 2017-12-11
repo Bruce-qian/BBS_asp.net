@@ -64,4 +64,9 @@ public partial class regist : System.Web.UI.Page
         */
         sqlCon.Close();
     }
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("home_page.aspx");//跳转到主页
+    }
 }

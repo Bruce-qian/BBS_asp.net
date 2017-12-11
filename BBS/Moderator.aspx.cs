@@ -11,7 +11,7 @@ public partial class Moderator : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["UserID"] = "橙子";
+        //Session["UserID"] = "橙子";
         txtUser.Text = (string)Session["UserID"];
         txtModerate.Text = (string)Application["forumId"];
         //txtPassword.Text = "输入密码确认";
@@ -31,7 +31,19 @@ public partial class Moderator : System.Web.UI.Page
         if (sqlDr.Read())
         {
             sqlDr.Close();
-            sqlComGet.CommandText = "insert into temp2(username, bbs_title) values('" + txtUser.Text + "','" + txtModerate.Text + "')";//插入到申请表
+            int i = 0;
+            if (txtModerate.Text == "C++")
+            {
+                i = 1;
+            }
+            else if (txtModerate.Text == "JAVA")
+            {
+                i = 2;
+            }
+            else if (txtModerate.Text == "C#") {
+                i = 3;
+            }
+            sqlComGet.CommandText = "insert into temp2(username, bbs_id) values('" + txtUser.Text + "'," + i.ToString() + ")";//插入到申请表
             int p = sqlComGet.ExecuteNonQuery();   //执行sql语句
             if (1 == p)
             {

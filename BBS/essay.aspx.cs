@@ -12,7 +12,7 @@ public partial class essay : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Session["limit"] = 4;//测试数据，后期删除
+        //Session["limit"] = 4;//测试数据，后期删除
         //判断权限,显示或隐藏部分功能
         if ((int)Session["limit"] <= 3)
         {
@@ -84,7 +84,7 @@ public partial class essay : System.Web.UI.Page
             SqlDataReader sqlDr = null;
             SqlCommand sqlComGet = null;
             
-            Session["UserID"] = 2;//用于测试的临时数据，用过之后需要注释
+            //Session["UserID"] = 2;//用于测试的临时数据，用过之后需要注释
             string str = "insert into Comment_Count_Table(user_id, post_id, comment_time, comment_content) values(" + Session["UserID"].ToString() + "," + (string)Application["post_id"] + ",'" + DateTime.Now.ToString() + "','" + txtConment.Text + "')";
             sqlCon.ConnectionString = ConfigurationManager.ConnectionStrings["strConn"].ConnectionString;
             try
@@ -153,5 +153,10 @@ public partial class essay : System.Web.UI.Page
             }
         }
         //该模块测试通过
+    }
+
+    protected void btnReturn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("title_list.aspx");//跳转到内容页
     }
 }

@@ -37,12 +37,35 @@ public partial class home_page : System.Web.UI.Page
 
     protected void TreeView1_SelectedNodeChanged(object sender, EventArgs e)
     {
-        Application["class"] = TreeView1.SelectedValue;//传值到title_list
-        rightfrm.Attributes["src"] = "title_list.aspx";//在iframe中加载title_list
+        if (TreeView1.SelectedValue == "C++")
+        {
+            Session["class"] = (int)1;
+        }
+        else if (TreeView1.SelectedValue == "JAVA") {
+            Session["class"] = (int)2;
+        } else if(TreeView1.SelectedValue == "C#")
+        {
+            Session["class"] = (int)3;
+        }
+        
+       
+            rightfrm.Attributes["src"] = "title_list.aspx";//在iframe中加载title_list
+       
     }
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         rightfrm.Attributes["src"] = "login.aspx";//在iframe中加载一个页面
+        //Response.Redirect("login.aspx");//跳转到登陆页
+    }
+
+    protected void btnQuit_Click(object sender, EventArgs e)
+    {
+        Session["UserID"] = null;
+    }
+
+    protected void btnPost_Click(object sender, EventArgs e)
+    {
+        rightfrm.Attributes["src"] = "pushessay.aspx";//在iframe中加载一个页面
     }
 }

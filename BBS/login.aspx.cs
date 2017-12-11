@@ -58,7 +58,7 @@ public partial class login : System.Web.UI.Page
             Session["UserEmail"] = sqlDr["email"];
             Session["UserName"] = uname;                      //用Session记录帐号
             Session["limit"] = (int)0;//用户权限， 数值越小权限越高
-            Session["UserPwd"] = pwd;                //用Session记录密码
+            ///Session["UserPwd"] = pwd;                //用Session记录密码
             Response.Redirect("home.aspx");//跳转到主页
             Response.Write("<script>alert('登陆成功！')</script>");
         }

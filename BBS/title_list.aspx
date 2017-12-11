@@ -35,16 +35,20 @@
                 <td>
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSourceViewItem" AllowPaging="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" PageSize="2">
             <Columns>
-                <asp:BoundField DataField="post_id" HeaderText="post_id" SortExpression="post_id" />
-                <asp:BoundField DataField="user_id" HeaderText="user_id" SortExpression="user_id" />
-                <asp:BoundField DataField="post_title" HeaderText="post_title" SortExpression="post_title" />
-                <asp:BoundField DataField="post_publish_time" HeaderText="post_publish_time" SortExpression="post_publish_time" />
-                <asp:BoundField DataField="reade_count" HeaderText="reade_count" SortExpression="reade_count" />
+                <asp:BoundField DataField="post_id" HeaderText="帖子编号" SortExpression="post_id" />
+                <asp:BoundField DataField="user_id" HeaderText="用户id" SortExpression="user_id" />
+                <asp:BoundField DataField="post_title" HeaderText="标题" SortExpression="post_title" />
+                <asp:BoundField DataField="post_publish_time" HeaderText="发表时间" SortExpression="post_publish_time" />
+                <asp:BoundField DataField="reade_count" HeaderText="阅读量" SortExpression="reade_count" />
                 <asp:CommandField ShowSelectButton="True" />
             </Columns>
         </asp:GridView>
     
-        <asp:SqlDataSource ID="SqlDataSourceViewItem" runat="server" ConnectionString="<%$ ConnectionStrings:strConn %>" SelectCommand="SELECT [post_id], [user_id], [post_title], [post_publish_time], [reade_count] FROM [Send_Post_Count_Table]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceViewItem" runat="server" ConnectionString="<%$ ConnectionStrings:strConn %>" SelectCommand="SELECT [post_id], [user_id], [post_title], [post_publish_time], [reade_count] FROM [Send_Post_Count_Table] WHERE ([bbs_id] = @bbs_id)">
+            <SelectParameters>
+                <asp:SessionParameter Name="bbs_id" SessionField="class" Type="Int32" />
+            </SelectParameters>
+                    </asp:SqlDataSource>
     
                 </td>
             </tr>

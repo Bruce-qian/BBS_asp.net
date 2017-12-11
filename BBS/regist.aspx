@@ -87,7 +87,10 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btnOk" runat="server" Text="注册" Height="31px" Width="58px" OnClick="btnOk_Click" />
+                    <asp:Button ID="btnOk" runat="server" Text="注册" Height="32px" Width="94px" OnClick="btnOk_Click" />
+                </td>
+                <td>
+                    <asp:Button ID="btnHome" runat="server" Text="主页" OnClick="btnHome_Click" />
                 </td>
             </tr>
         </table>
